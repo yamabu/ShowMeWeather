@@ -33,7 +33,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyViewHolder> implem
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.mTextView.setText("点我");
-        holder.itemView.setTag(position + "");
+        holder.itemView.setTag(position);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyViewHolder> implem
     @Override
     public void onClick(View v) {
         if (mOnItemClickListener != null) {
-            mOnItemClickListener.onItemClick(v, (String) v.getTag());
+            mOnItemClickListener.onItemClick(v, v.getTag());
         }
     }
 
@@ -53,7 +53,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyViewHolder> implem
     }
 
     public interface OnRecyclerViewItemClickListener {
-        void onItemClick(View view, String data);
+        void onItemClick(View view, Object object);
     }
 }
 

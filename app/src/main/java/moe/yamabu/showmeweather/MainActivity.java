@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.Objects;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import moe.yamabu.showmeweather.adapter.MyRecyclerAdapter;
@@ -42,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         myRecyclerAdapter.setOnItemClickListener(new MyRecyclerAdapter
                 .OnRecyclerViewItemClickListener() {
             @Override
-            public void onItemClick(View view, String data) {
-                doNet(view, Integer.parseInt(data));
+            public void onItemClick(View view, Object data) {
+                doNet(view, (int) data);
             }
         });
 
